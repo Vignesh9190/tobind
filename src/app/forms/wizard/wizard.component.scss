@@ -1,0 +1,19 @@
+.container{
+    width: 100%;
+}
+.progressbar{
+    li{
+        list-style-type: none;
+        float: left;
+        width: 20%;
+        position: relative;
+        padding-block-start: 30px;
+        text-align: center;
+
+        a{
+            color: white;
+        }
+    }
+
+}
+

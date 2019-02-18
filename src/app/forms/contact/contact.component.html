@@ -1,0 +1,55 @@
+<div class="container">
+<div class="col-lg-10">
+  <h2 class="text-center">{{formLabel}}</h2>
+  <form [formGroup]="contactForm" novalidate class="form">
+    <div class="form-group">
+      <label for="custEmail">Customer Email:</label>
+      <input formControlName="emailId" placeholder="Email Id" name="custEmail" class="form-control" id="custEmail">
+      <div class="warning" *ngIf="contactForm.get('emailId').hasError('required') && contactForm.get('emailId').touched">
+        Email is required.
+      </div>
+      <div class="warning" *ngIf="contactForm.get('emailId').hasError('pattern')">
+        Email is failed to match the perfect email pattern
+      </div> 
+    </div>
+    <div class="form-group">
+      <label for="emailPriority">Email Priority:</label>
+      <select class="form-control" id="emailPriority" formControlName="emailPriority" name="emailPriority">
+        <option value="" selected disabled>Choose here</option>
+        <option value="primary">Primary</option>
+        <option value="secondary">Secondary</option>
+      </select>
+      <div class="warning" *ngIf="contactForm.get('emailPriority').hasError('required') && contactForm.get('emailPriority').touched">
+        Priority selection is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="custPhone">Customer Phone:</label>
+      <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" formControlName="phone" placeholder="Phone Number" name="custPhone" class="form-control" id="custPhone">
+      <div class="warning" *ngIf="contactForm.get('phone').touched && !contactForm.get('phone').valid">
+        <span *ngIf="contactForm.controls['phone'].hasError('required') ">
+          Phone is required.
+        </span>
+        <span *ngIf="contactForm.controls['phone'].hasError('minlength') ">
+          Min length is 2
+        </span>
+        <span *ngIf="contactForm.controls['phone'].hasError('maxlength') ">
+          max length is 10
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phonePriority">Phone Priority:</label>
+      <select class="form-control" id="phonePriority" formControlName="phonePriority" name="phonePriority">
+        <option value="" selected disabled>Choose here</option>
+        <option value="primary">Primary</option>
+        <option value="secondary">Secondary</option>
+      </select>
+      <div class="warning" *ngIf="contactForm.get('phonePriority').hasError('required') && contactForm.get('phonePriority').touched">
+        Priority selection is required.
+      </div>
+    </div>
+    <button class="custom" [disabled]='contactForm.invalid' (click)="onSubmit()">Next</button>  
+  </form>
+</div>
+</div>

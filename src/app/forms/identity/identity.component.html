@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="col-lg-10">
+    <h2 class="text-center">{{formLabel}}</h2>
+    <form [formGroup]="identityForm" novalidate class="form">
+      <div class="form-group">
+        <label for="proofType">Proof Type:</label>
+        <select class="form-control" id="proofType" formControlName="proofType" name="proofType">
+          <option value="" selected disabled>Choose here</option>
+          <option value="pancard">Pan Card</option>
+          <option value="driving licence">Driving Licence</option>
+        </select>
+        <div class="warning" *ngIf="identityForm.get('proofType').hasError('required') && identityForm.get('proofType').touched">
+          Proof Type selection is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="proofNumber">Proof Number:</label>
+        <input formControlName="proofNumber" placeholder="Proof Number" name="custPhone" class="form-control" id="custPhone">
+        <div class="warning" *ngIf="identityForm.get('proofNumber').touched && !identityForm.get('proofNumber').valid">
+          <span *ngIf="identityForm.controls['proofNumber'].hasError('required') ">
+            Proof Number is required.
+          </span>
+          <span *ngIf="identityForm.controls['proofNumber'].hasError('minlength') ">
+            Min length is 5
+          </span>
+          <span *ngIf="identityForm.controls['proofNumber'].hasError('maxlength') ">
+            max length is 16
+          </span>
+        </div>
+      </div>
+      <button class="custom" [disabled]='identityForm.invalid' (click)="onSubmit()">Next</button>
+    </form>
+  </div>
+</div>

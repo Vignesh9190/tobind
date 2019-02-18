@@ -1,0 +1,116 @@
+<div class="container">
+  <div class="col-lg-10">
+    <h2 class="text-center">{{formLabel}}</h2>
+    <form [formGroup]="generalForm" novalidate class="form">
+      <div class="form-group">
+        <label for="custFirstName">First Name:</label>
+        <input formControlName="firstName" placeholder="First Name" name="custFirstName" class="form-control" id="custFirstName">
+        <div class="warning" *ngIf="generalForm.controls['firstName'].touched && !generalForm.controls['firstName'].valid">
+          <span *ngIf="generalForm.controls['firstName'].hasError('required') ">
+            First name is required
+          </span>
+          <span *ngIf="generalForm.controls['firstName'].hasError('minlength') ">
+            Min length is 2
+          </span>
+          <span *ngIf="generalForm.controls['firstName'].hasError('maxlength') ">
+            max length is 32
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="custFirstName">Last Name:</label>
+        <input formControlName="lastName" placeholder="Last Name" name="custLastName" class="form-control" id="custLastName">
+        <div class="warning" *ngIf="generalForm.controls['lastName'].touched && !generalForm.controls['lastName'].valid">
+          <span *ngIf="generalForm.controls['lastName'].hasError('required') ">
+            Last name is required
+          </span>
+          <span *ngIf="generalForm.controls['lastName'].hasError('minlength') ">
+            Min length is 1
+          </span>
+          <span *ngIf="generalForm.controls['lastName'].hasError('maxlength') ">
+            max length is 16
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="custDob">Date Of Birth:</label>
+        <input formControlName="dob" onkeyup="this.value=this.value.replace(/^(\d\d)(\d)$/g,'$1/$2').replace(/^(\d\d\/\d\d)(\d+)$/g,'$1/$2').replace(/[^\d\/]/g,'')"
+          size=10 maxlength=10 placeholder="mm/dd/yyy" name="custDob" class="form-control" id="custDob">
+        <div class="warning" *ngIf="generalForm.get('dob').hasError('required') && generalForm.get('dob').touched">
+          Date of birth is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="custAge">Age:</label>
+        <input formControlName="age" placeholder="Age" name="custAge" class="form-control" id="custAge" disabled>
+        <div class="warning" *ngIf="generalForm.get('age').hasError('required') && generalForm.get('age').touched">
+          Age is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="custAddress">Address:</label>
+        <input formControlName="address" placeholder="Address" name="custAddress" class="form-control" id="custAddress">
+        <div class="warning" *ngIf="generalForm.controls['address'].touched && !generalForm.controls['address'].valid">
+          <span *ngIf="generalForm.controls['address'].hasError('required') ">
+            Address is required
+          </span>
+          <span *ngIf="generalForm.controls['address'].hasError('minlength') ">
+            Min length is 2
+          </span>
+          <span *ngIf="generalForm.controls['address'].hasError('maxlength') ">
+            max length is 56
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="custCity">City:</label>
+        <select class="form-control" id="custCity" formControlName="city" name="custCity">
+          <option value="" selected disabled>Choose here</option>
+          <option *ngFor="let city of cities" [value]="city">{{city}}</option>
+        </select>
+        <div class="warning" *ngIf="generalForm.get('city').hasError('required') && generalForm.get('city').touched">
+          City is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="custState">State:</label>
+        <select class="form-control" id="custState" formControlName="state" name="custState">
+          <option value="" selected disabled>Choose here</option>
+          <option *ngFor="let state of states" [value]="state">{{state}}</option>
+        </select>
+        <div class="warning" *ngIf="generalForm.get('state').hasError('required') && generalForm.get('state').touched">
+          State is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="custCountry">Country:</label>
+        <select class="form-control" id="custCountry" formControlName="country" name="custCountry">
+          <option value="" selected disabled>Choose here</option>
+          <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+        </select>
+        <div class="warning" *ngIf="generalForm.get('country').hasError('required') && generalForm.get('country').touched">
+          Country is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="custZipcode">Zipcode:</label>
+        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" formControlName="zipcode"
+          placeholder="Zipcode" name="custZipcode" class="form-control" id="custZipcode">
+        <div class="warning" *ngIf="generalForm.controls['zipcode'].touched && !generalForm.controls['zipcode'].valid">
+          <span *ngIf="generalForm.controls['zipcode'].hasError('required') ">
+            Zipcode is required
+          </span>
+          <span *ngIf="generalForm.controls['zipcode'].hasError('minlength') ">
+            Min length is 2
+          </span>
+          <span *ngIf="generalForm.controls['zipcode'].hasError('maxlength') ">
+            max length is 6
+          </span>
+        </div>
+      </div>
+
+      <button class="custom" [disabled]='generalForm.invalid' (click)="onSubmit()">Next</button>
+
+    </form>
+  </div>
+</div>

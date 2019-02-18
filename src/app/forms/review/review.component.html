@@ -1,0 +1,141 @@
+<div>
+  <h3>Review</h3>
+  <div class='col-lg-6 offset-lg-3'>
+
+    <div class="row">
+      <div class='col-lg-4 col-sm-2'>
+        <div class="form-group">
+          <label class="" for="firstname">First Name: </label>
+        </div>
+      </div>
+      <div class='col-lg-6 col-sm-10'>
+        <span>{{customer.firstName }}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-lg-4 col-sm-2'>
+        <div class="form-group">
+          <label class="" for="lastname">Last Name: </label>
+        </div>
+      </div>
+      <div class='col-lg-8 col-sm-10'>
+        <span>{{customer.lastName}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-lg-4 col-sm-2'>
+        <div class="form-group">
+          <label class="" for="dateofbirth">Date of Birth: </label>
+        </div>
+      </div>
+      <div class='col-lg-8 col-sm-10'>
+        <span>{{customer.dob}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-lg-4 col-sm-2'>
+        <div class="form-group">
+          <label class="" for="age">Age: </label>
+        </div>
+      </div>
+      <div class='col-lg-8 col-sm-10'>
+        <span>{{customer.age}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-lg-4 col-sm-2'>
+        <div class="form-group">
+          <label class="" for="address">Address: </label>
+        </div>
+      </div>
+      <div class='col-lg-8 col-sm-10'>
+        <span>{{customer.address}}</span>
+        <br />
+        <span>{{customer.city + ', ' + customer.state + ', ' + customer.zipcode + ', ' + customer.country}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-lg-4 col-sm-2'>
+        <div class="form-group">
+          <label class="" for="email">Email Id: </label>
+        </div>
+      </div>
+      <div class='col-lg-8 col-sm-10'>
+        <span>{{customer.emailId}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-lg-4 col-sm-2'>
+        <div class="form-group">
+          <label class="" for="emailpriority">Email Priority: </label>
+        </div>
+      </div>
+      <div class='col-lg-8 col-sm-10'>
+        <span>{{customer.emailPriority}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-lg-4 col-sm-2'>
+        <div class="form-group">
+          <label class="" for="phone">Phone: </label>
+        </div>
+      </div>
+      <div class='col-lg-8 col-sm-10'>
+        <span>{{customer.phone}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-lg-4 col-sm-2'>
+        <div class="form-group">
+          <label class="" for="phonepriority">Phone Priority: </label>
+        </div>
+      </div>
+      <div class='col-lg-8 col-sm-10'>
+        <span>{{customer.phonePriority}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-lg-4 col-sm-2'>
+        <div class="form-group">
+          <label class="" for="prooftype">Proof Type: </label>
+        </div>
+      </div>
+      <div class='col-lg-8 col-sm-10'>
+        <span>{{customer.proofType}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-lg-4 col-sm-2'>
+        <div class="form-group">
+          <label class="" for="proofnumber">Proof Number: </label>
+        </div>
+      </div>
+      <div class='col-lg-8 col-sm-10'>
+        <span>{{customer.proofNumber}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-lg-4 col-sm-2'>
+        <div class="form-group">
+          <label class="" for="annualincome">Annual Income: </label>
+        </div>
+      </div>
+      <div class='col-lg-8 col-sm-10'>
+        <span>{{customer.annualIncome | currency:"INR":true}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-lg-4 col-sm-2'>
+        <div class="form-group">
+          <label class="" for="monthlyincome">Monthly Income: </label>
+        </div>
+      </div>
+      <div class='col-lg-8 col-sm-10'>
+        <span>{{customer.monthlyIncome | currency:"INR":true}}</span>
+      </div>
+    </div>
+    <div>
+      <button class="custom" (click)="onSubmit()">Submit</button>
+    </div>
+  </div>
+</div>

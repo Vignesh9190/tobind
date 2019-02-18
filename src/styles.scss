@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+$color_1: white;
+$color_2: #fb2525;
+body {
+	margin: 0;
+	padding: 0;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url("http://www.jacaranda.com.au/wp-content/uploads/2016/12/studyon_header_20161.jpg");
+	background-size: cover;
+	//font-family: $font-family_1;
+	background-attachment: fixed;
+}
+
+h1,h2,h3 {
+	margin: 0;
+	padding: 0 0 20px;
+	text-align: center;
+    font-size: 22px;
+    color: $color_1;
+}
+
+label{
+    color: $color_1;
+}
+
+.custom{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: $color_2;
+    color: $color_1;
+    font-size: 18px;
+    border-radius: 20px;
+    width: 100px;
+}
+
+.warning{
+    color: $color_1;
+    background-color: $color_2;
+}

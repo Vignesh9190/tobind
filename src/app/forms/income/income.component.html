@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col-lg-10">
+    <h2 class="text-center">{{formLabel}}</h2>
+    <form [formGroup]="incomeForm" novalidate class="form">
+      <div class="form-group">
+        <label for="annualIncome">Annual Income:</label>
+        <input formControlName="annualIncome" placeholder="Annual Income" name="annualIncome" class="form-control" id="annualIncome">
+        <div class="warning" *ngIf="incomeForm.get('annualIncome').hasError('required') && incomeForm.get('annualIncome').touched">
+          Annual Income is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="monthlyIncome">Monthly Income:</label>
+        <input formControlName="monthlyIncome" placeholder="Monthly Income" name="monthlyIncome" class="form-control"
+          id="monthlyIncome">
+        <div class="warning" *ngIf="incomeForm.get('monthlyIncome').hasError('required') && incomeForm.get('monthlyIncome').touched">
+          Monthly Income is required.
+        </div>
+      </div>
+      <button class="custom" [disabled]='incomeForm.invalid' (click)="onSubmit()">Next</button>
+    </form>
+  </div>
+</div>
