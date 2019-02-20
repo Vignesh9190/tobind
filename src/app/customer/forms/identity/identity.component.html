@@ -2,7 +2,8 @@
   <div class="col-lg-10">
     <h2 class="text-center">{{formLabel}}</h2>
     <form [formGroup]="identityForm" novalidate class="form">
-      <div class="form-group">
+      <div class="form-row">
+      <div class="form-group col-lg-6">
         <label for="proofType">Proof Type:</label>
         <select class="form-control" id="proofType" formControlName="proofType" name="proofType">
           <option value="" selected disabled>Choose here</option>
@@ -13,7 +14,7 @@
           Proof Type selection is required.
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group col-lg-6">
         <label for="proofNumber">Proof Number:</label>
         <input formControlName="proofNumber" placeholder="Proof Number" name="custPhone" class="form-control" id="custPhone">
         <div class="warning" *ngIf="identityForm.get('proofNumber').touched && !identityForm.get('proofNumber').valid">
@@ -28,7 +29,9 @@
           </span>
         </div>
       </div>
-      <button class="custom" [disabled]='identityForm.invalid' (click)="onSubmit()">Next</button>
+      </div>
+
+      <button class="btn btn btn-success" [disabled]='identityForm.invalid' (click)="onSubmit()">Next</button>
     </form>
   </div>
 </div>

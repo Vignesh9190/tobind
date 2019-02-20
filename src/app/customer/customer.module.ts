@@ -3,12 +3,15 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from "@angular/forms"; 
 import { CustomerComponent } from './customer.component';
-import { GeneralComponent } from '../forms/general/general.component';
-import { ContactComponent } from '../forms/contact/contact.component';
-import { WizardComponent } from '../forms/wizard/wizard.component';
-import { IdentityComponent } from '../forms/identity/identity.component';
-import { IncomeComponent } from '../forms/income/income.component';
-import { ReviewComponent } from '../forms/review/review.component';
+import { GeneralComponent } from './forms/general/general.component';
+import { ContactComponent } from './forms/contact/contact.component';
+import { WizardComponent } from './forms/wizard/wizard.component';
+import { IdentityComponent } from './forms/identity/identity.component';
+import { IncomeComponent } from './forms/income/income.component';
+import { ReviewComponent } from './forms/review/review.component';
+import { DobvalidationDirective } from '../shared/directive/dobvalidation.directive';
+import { NumbervalidationDirective } from '../shared/directive/numbervalidation.directive';
+import {NgxMaskModule} from 'ngx-mask';
 
 //routes inside customer module
 //customer component will have wizard and its child routes
@@ -32,12 +35,15 @@ const customerRoutes: Routes = [
     WizardComponent,
     IdentityComponent,
     IncomeComponent,
-    ReviewComponent
+    ReviewComponent,
+    DobvalidationDirective,
+    NumbervalidationDirective
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule.forChild(customerRoutes)
+    RouterModule.forChild(customerRoutes),
+    NgxMaskModule.forRoot()
   ]
 })
 export class CustomerModule { }

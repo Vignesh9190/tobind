@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import { CustomerService } from '../shared/service/customer.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,9 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  submitted = false;
+  invalid = false;
+  constructor(private formBuilder: FormBuilder, private router: Router, private customerService : CustomerService) { }
   
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -18,14 +21,17 @@ export class LoginComponent implements OnInit {
     });
   }
 
+
   onSubmit() {
+    this.submitted = true;
     if(this.loginForm.controls.customer_Id.value == 'I19002' && this.loginForm.controls.password.value == 'password') {
       console.log('login');
-     this.router.navigate(['customer']);  
-      window.alert('valid login');
+      this.customerService.setCustomerId(this.loginForm.get('customer_Id').value);
+      
+      this.router.navigate(['customer/general']);  
         
     }else {
-      window.alert('Invalid login');
+      this.invalid=true;
     }
     
   }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from "@angular/router";
-import { CustomerService } from '../../shared/service/customer.service';
+import { CustomerService } from '../../../shared/service/customer.service';
 
 
 @Component({
@@ -35,6 +35,7 @@ export class GeneralComponent implements OnInit {
 
   //to set age automatically for the customer
   toSetAge() {
+    console.log('reached');
     const ageControl = this.generalForm.get('age');
     this.generalForm.get('dob').valueChanges.subscribe(
       (birthDate: Date) => {

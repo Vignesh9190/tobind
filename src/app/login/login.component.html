@@ -4,25 +4,29 @@
 
   <div class="col-md-12">
     <h1>Login </h1>
-    <form [formGroup]="loginForm">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="custId">Customer Id:</label>
         <input formControlName="customer_Id" placeholder="Customer Id" name="custId" class="form-control" id="custId">
-        <span class="warning" *ngIf="loginForm.get('customer_Id').hasError('required') && loginForm.get('customer_Id').touched">
-          Customer Id is required
-        </span>
+        <div class="warning" *ngIf="submitted && loginForm.get('customer_Id').hasError('required')">
+          Enter the customer Id
+        </div>
       </div>
       <div class="form-group">
         <label for="custPwd">Password:</label>
         <input type="password" formControlName="password" placeholder="Password" name="custPwd" class="form-control" id="custPwd">
-        <span class="warning" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
-          Password is required
-        </span>
+        <div class="warning" *ngIf="submitted && loginForm.get('password').hasError('required')">
+          Enter the correct password
+        </div>
       </div>
-      <button class="custom" [disabled]='loginForm.invalid' (click)="onSubmit()">Save</button>
+      <button class="btn btn btn-success">Login</button>
+      <p *ngIf = "invalid"> Invalid Login! </p>
     </form>
   </div>
 </div>
 </div>
+
+
+
 
 

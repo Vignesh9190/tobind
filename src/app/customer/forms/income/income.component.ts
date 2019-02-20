@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
-import { CustomerService } from '../../shared/service/customer.service';
+import { CustomerService } from '../../../shared/service/customer.service';
 @Component({
   selector: 'app-income',
   templateUrl: './income.component.html',
@@ -14,11 +14,22 @@ export class IncomeComponent implements OnInit {
 
   ngOnInit() {
     this.incomeForm = this.formBuilder.group({
-      annualIncome: ['', Validators.required],
-      monthlyIncome: ['', Validators.required]
+      monthlyIncome: ['', Validators.required],
+      annualIncome: ['', Validators.required] 
     });
+    //this.calculateIncome();
   }
 
+  // calculateIncome(){
+  //   console.log('Income reached');
+  //   this.incomeForm.get('monthlyIncome').valueChanges.subscribe(
+  //     (value: number) => {
+  //       console.log(value);
+  //       let annualInr = (value*12);
+  //       this.incomeForm.get('monthlyIncome').setValue(annualInr);
+  //     }
+  //   )
+  // }
   onSubmit() {
     console.log('income');
     console.log(this.incomeForm.value);

@@ -2,7 +2,8 @@
   <div class="col-lg-10">
     <h2 class="text-center">{{formLabel}}</h2>
     <form [formGroup]="generalForm" novalidate class="form">
-      <div class="form-group">
+      <div class="form-row">
+      <div class="form-group col-lg-6">
         <label for="custFirstName">First Name:</label>
         <input formControlName="firstName" placeholder="First Name" name="custFirstName" class="form-control" id="custFirstName">
         <div class="warning" *ngIf="generalForm.controls['firstName'].touched && !generalForm.controls['firstName'].valid">
@@ -17,7 +18,7 @@
           </span>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group col-lg-6">
         <label for="custFirstName">Last Name:</label>
         <input formControlName="lastName" placeholder="Last Name" name="custLastName" class="form-control" id="custLastName">
         <div class="warning" *ngIf="generalForm.controls['lastName'].touched && !generalForm.controls['lastName'].valid">
@@ -32,20 +33,26 @@
           </span>
         </div>
       </div>
-      <div class="form-group">
+      </div>
+      <div class="form-row">
+      <div class="form-group col-lg-6">
         <label for="custDob">Date Of Birth:</label>
-        <input formControlName="dob" onkeyup="this.value=this.value.replace(/^(\d\d)(\d)$/g,'$1/$2').replace(/^(\d\d\/\d\d)(\d+)$/g,'$1/$2').replace(/[^\d\/]/g,'')"
-          size=10 maxlength=10 placeholder="mm/dd/yyy" name="custDob" class="form-control" id="custDob">
+        <input appDobvalidation formControlName="dob" 
+          placeholder="mm/dd/yyyy" name="custDob" class="form-control" id="custDob">
         <div class="warning" *ngIf="generalForm.get('dob').hasError('required') && generalForm.get('dob').touched">
           Date of birth is required.
         </div>
+        <div class="warning" *ngIf="generalForm.get('dob').dirty && generalForm.get('dob').errors && generalForm.get('dob').errors.dobError ">
+            Minimum Age is 18 years.
+        </div>
       </div>
-      <div class="form-group">
+      <div class="form-group col-lg-6">
         <label for="custAge">Age:</label>
         <input formControlName="age" placeholder="Age" name="custAge" class="form-control" id="custAge" disabled>
         <div class="warning" *ngIf="generalForm.get('age').hasError('required') && generalForm.get('age').touched">
           Age is required.
         </div>
+      </div>
       </div>
       <div class="form-group">
         <label for="custAddress">Address:</label>
@@ -62,7 +69,8 @@
           </span>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-row">
+      <div class="form-group col-lg-3">
         <label for="custCity">City:</label>
         <select class="form-control" id="custCity" formControlName="city" name="custCity">
           <option value="" selected disabled>Choose here</option>
@@ -72,7 +80,7 @@
           City is required.
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group col-lg-3">
         <label for="custState">State:</label>
         <select class="form-control" id="custState" formControlName="state" name="custState">
           <option value="" selected disabled>Choose here</option>
@@ -82,7 +90,7 @@
           State is required.
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group col-lg-3">
         <label for="custCountry">Country:</label>
         <select class="form-control" id="custCountry" formControlName="country" name="custCountry">
           <option value="" selected disabled>Choose here</option>
@@ -92,9 +100,9 @@
           Country is required.
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group col-lg-3">
         <label for="custZipcode">Zipcode:</label>
-        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" formControlName="zipcode"
+        <input type="text" appNumbervalidation formControlName="zipcode"
           placeholder="Zipcode" name="custZipcode" class="form-control" id="custZipcode">
         <div class="warning" *ngIf="generalForm.controls['zipcode'].touched && !generalForm.controls['zipcode'].valid">
           <span *ngIf="generalForm.controls['zipcode'].hasError('required') ">
@@ -108,8 +116,9 @@
           </span>
         </div>
       </div>
+      </div>
 
-      <button class="custom" [disabled]='generalForm.invalid' (click)="onSubmit()">Next</button>
+      <button class="btn btn btn-success" [disabled]='generalForm.invalid' (click)="onSubmit()">Next</button>
 
     </form>
   </div>

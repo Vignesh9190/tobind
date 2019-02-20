@@ -39,10 +39,15 @@ export class CustomerService {
   } 
 
   setContactInfo(data: CustomerContactInfo){
-    this.customer.emailId = data.emailId;
-    this.customer.emailPriority = data.emailPriority;
-    this.customer.phone = data.phone;
-    this.customer.phonePriority = data.phonePriority;
+    this.customer.emailId1 = data.emailId1;
+    this.customer.emailPriority1 = data.emailPriority1;
+    this.customer.emailId2 = data.emailId2;
+    this.customer.emailPriority2 = data.emailPriority2;
+    this.customer.phone1 = data.phone1;
+    this.customer.phonePriority1 = data.phonePriority1;
+    this.customer.phone2 = data.phone2;
+    this.customer.phonePriority2 = data.phonePriority2;
+
   }
 
   setIdentityInfo(data: CustomerIdentityInfo) {
@@ -53,6 +58,11 @@ export class CustomerService {
   setIncomeInfo(data: CustomerIncomeInfo){
     this.customer.annualIncome = data.annualIncome;
     this.customer.monthlyIncome = data.monthlyIncome;
+  }
+
+  setCustomerId(data){
+    this.customer.customerId = data;
+    console.log(data);
   }
 
 }

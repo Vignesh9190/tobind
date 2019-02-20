@@ -9,10 +9,14 @@ export class Customer {
     public state : string = '';
     public country : string = '';
     public zipcode : number = 0;
-    public emailId : string = '';
-    public emailPriority: string = '';
-    public phone: number = 0;
-    public phonePriority: String = '';
+    public emailId1 : string = '';
+    public emailPriority1: string = '';
+    public emailId2 : string = 'N/A';
+    public emailPriority2: string = 'N/A';
+    public phone1: number = 0;
+    public phonePriority1: String = '';
+    public phone2: number = null;
+    public phonePriority2: String = 'N/A';
     public proofType: string = '';
     public proofNumber: string = '';
     public annualIncome: number = 0;
@@ -31,10 +35,14 @@ export class CustomerGeneralInfo {
 }
 
 export class CustomerContactInfo {
-     public emailId : string;
-     public emailPriority: string;
-     public phone: number;
-     public phonePriority: String;
+     public emailId1 : string;
+     public emailPriority1: string;
+     public emailId2 : string;
+     public emailPriority2: string;
+     public phone1: number;
+     public phonePriority1: String;
+     public phone2: number;
+     public phonePriority2: String;
 }
 
 export class CustomerIdentityInfo {

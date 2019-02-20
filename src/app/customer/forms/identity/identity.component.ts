@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
-import { CustomerService } from '../../shared/service/customer.service';
+import { CustomerService } from '../../../shared/service/customer.service';
 
 @Component({
   selector: 'app-identity',
