@@ -1,31 +1,29 @@
-$color_1: white;
-$color_2: #fb2525;
+@import "../../stylings/variables";
+@import "../../stylings/mixin";
 .box {
-	width: 328px;
-	height: 420px;
+	@include commonSetting(328px, 420px, 50%, 50%);
 	background: rgba(0, 0, 0, 0.34);
 	color: $color_1;
-	top: 50%;
-	left: 50%;
 	position: absolute;
 	transform: translate(-50%,-50%);
 	box-sizing: border-box;
 	border-radius: 20px;
-    padding: 80px 30px;
-    
+	padding: 80px 30px;
+	//nested scss and its follows only this same hierarchy
+	.logo{
+		@include commonSetting(100px, 100px, -50px, 35%); //used mixin to limit the code 
+		border-radius: 50%;
+		position: absolute;
+	}
 }
 
-.logo {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	position: absolute;
-	top: -50px;
-	left: 35%;
+.inter{
+	text-align: center;
+    color: $color_2;
 }
 
 p{
-    text-align: center;
-    color: $color_2;
+   @extend .inter; //extend another class to access the properties
 }
+
 

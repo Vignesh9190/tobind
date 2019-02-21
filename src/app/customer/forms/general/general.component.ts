@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
 import { CustomerService } from '../../../shared/service/customer.service';
 
@@ -9,6 +9,7 @@ import { CustomerService } from '../../../shared/service/customer.service';
   templateUrl: './general.component.html',
   styleUrls: ['./general.component.scss']
 })
+//General component to define reactive form and its form controls
 export class GeneralComponent implements OnInit {
   generalForm: FormGroup;
   formLabel: string = "General Info";
@@ -20,8 +21,8 @@ export class GeneralComponent implements OnInit {
   ngOnInit() {
     console.log('general');
     this.generalForm = this.formBuilder.group({
-      firstName: ['', [Validators.required, Validators.maxLength(32), Validators.minLength(2)]],
-      lastName: ['', [Validators.required, Validators.maxLength(16), Validators.minLength(1)]],
+      firstName: ['', [Validators.required, Validators.pattern('^[a-zA-Z \-\']+'), Validators.maxLength(32), Validators.minLength(2)]],
+      lastName: ['', [Validators.required, Validators.pattern('^[a-zA-Z \-\']+'), Validators.maxLength(16), Validators.minLength(1)]],
       dob: ['', Validators.required],
       age: [''],
       address: ['', [Validators.required, Validators.maxLength(56), Validators.minLength(2)]],

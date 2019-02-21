@@ -25,7 +25,7 @@
           </div>
         </div>
         <div *ngIf="primaryEmail" class="col-md-2">
-          <img src="assets/images/icon5.svg" (click)="addItem()">
+          <img src="assets/images/icon5.svg" (click)="addSecondaryEmail()">
         </div>
       </div>
       <div *ngIf="secondaryEmail" class="form-row">
@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="col-md-2">
-          <img class="resize" src="assets/images/remove.svg" (click)="removeItem()">
+          <img class="resize" src="assets/images/remove.svg" (click)="removeSecondaryEmail()">
         </div>
       </div>
       <div class="form-row">
@@ -83,7 +83,7 @@
           </div>
         </div>
         <div *ngIf="primaryPhone" class="col-md-2">
-          <img src="assets/images/icon5.svg" (click)="addPhone()">
+          <img src="assets/images/icon5.svg" (click)="addSecondaryPhone()">
         </div>
       </div>
       <div *ngIf="secondaryPhone" class="form-row">
@@ -115,7 +115,7 @@
             </div>
           </div>
           <div class="col-md-2">
-            <img class="resize" src="assets/images/remove.svg" (click)="removePhone()">
+            <img class="resize" src="assets/images/remove.svg" (click)="removeSecondaryPhone()">
           </div>
         </div>
       <button class="btn btn btn-success" [disabled]='contactForm.invalid' (click)="onSubmit()">Next</button>

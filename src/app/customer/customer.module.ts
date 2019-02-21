@@ -11,7 +11,7 @@ import { IncomeComponent } from './forms/income/income.component';
 import { ReviewComponent } from './forms/review/review.component';
 import { DobvalidationDirective } from '../shared/directive/dobvalidation.directive';
 import { NumbervalidationDirective } from '../shared/directive/numbervalidation.directive';
-import {NgxMaskModule} from 'ngx-mask';
+//import {NgxMaskModule} from 'ngx-mask';
 
 //routes inside customer module
 //customer component will have wizard and its child routes
@@ -36,14 +36,14 @@ const customerRoutes: Routes = [
     IdentityComponent,
     IncomeComponent,
     ReviewComponent,
-    DobvalidationDirective,
-    NumbervalidationDirective
+    DobvalidationDirective, //directive to perform date of birth validation
+    NumbervalidationDirective  //directive to limit user to allow only number
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild(customerRoutes),
-    NgxMaskModule.forRoot()
+    //NgxMaskModule.forRoot()
   ]
 })
 export class CustomerModule { }

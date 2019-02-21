@@ -1,5 +1,4 @@
-$color_1: white;
-$color_2: #fb2525;
+@import "../../../../stylings/variables";
 h1,h2 {
 	margin: 0;
 	padding: 0 0 20px;
@@ -12,9 +11,3 @@ label{
     color: $color_1;
 }
 
-.warning{
-
-    color: $color_2;
-   // background-color: $color_2;
-
-}

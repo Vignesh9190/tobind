@@ -4,6 +4,7 @@ import { LoginComponent } from './login.component';
 import { RouterModule, Routes } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms"; 
 
+//Routing configuration for login child module
 const loginRoutes: Routes = [
   { path: '', component: LoginComponent }
 ];
@@ -13,7 +14,7 @@ const loginRoutes: Routes = [
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule.forChild(loginRoutes)
+    RouterModule.forChild(loginRoutes) //to register the child routes
   ]
 })
 export class LoginModule { }

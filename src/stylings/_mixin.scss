@@ -1,0 +1,7 @@
+@mixin commonSetting($width, $height, $top, $left){
+    width: $width;
+    height: $height;
+    top: $top;
+    left: $left;
+}
+

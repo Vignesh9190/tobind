@@ -1,3 +1,4 @@
+@import "../../../../stylings/variables";
 .container{
     width: 100%;
 }
@@ -11,7 +12,7 @@
         text-align: center;
 
         a{
-            color: white;
+            color: $color_1;
         }
     }
 

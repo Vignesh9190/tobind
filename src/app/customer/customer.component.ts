@@ -7,6 +7,8 @@ import { CustomerService } from '../shared/service/customer.service';
   templateUrl: './customer.component.html',
   styleUrls: ['./customer.component.scss']
 })
+
+//customer component to display nav items and its corresponding component view in a sam page
 export class CustomerComponent implements OnInit {
 
   @Input() customer; //same object from service

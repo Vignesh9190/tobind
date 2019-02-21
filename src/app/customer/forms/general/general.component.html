@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-lg-10">
-    <h2 class="text-center">{{formLabel}}</h2>
+    <h2 class="text-center header">{{formLabel}}</h2>
     <form [formGroup]="generalForm" novalidate class="form">
       <div class="form-row">
       <div class="form-group col-lg-6">
@@ -8,13 +8,16 @@
         <input formControlName="firstName" placeholder="First Name" name="custFirstName" class="form-control" id="custFirstName">
         <div class="warning" *ngIf="generalForm.controls['firstName'].touched && !generalForm.controls['firstName'].valid">
           <span *ngIf="generalForm.controls['firstName'].hasError('required') ">
-            First name is required
+            First name is required.
           </span>
           <span *ngIf="generalForm.controls['firstName'].hasError('minlength') ">
-            Min length is 2
+            Min length is 2.
           </span>
           <span *ngIf="generalForm.controls['firstName'].hasError('maxlength') ">
-            max length is 32
+            max length is 32.
+          </span> 
+          <span *ngIf="generalForm.controls['firstName'].hasError('pattern')">
+            Numbers are not allowed
           </span>
         </div>
       </div>
@@ -23,13 +26,16 @@
         <input formControlName="lastName" placeholder="Last Name" name="custLastName" class="form-control" id="custLastName">
         <div class="warning" *ngIf="generalForm.controls['lastName'].touched && !generalForm.controls['lastName'].valid">
           <span *ngIf="generalForm.controls['lastName'].hasError('required') ">
-            Last name is required
+            Last name is required.
           </span>
           <span *ngIf="generalForm.controls['lastName'].hasError('minlength') ">
-            Min length is 1
+            Min length is 1.
           </span>
           <span *ngIf="generalForm.controls['lastName'].hasError('maxlength') ">
-            max length is 16
+            max length is 16.
+          </span>
+          <span *ngIf="generalForm.controls['lastName'].hasError('pattern')">
+            Numbers are not allowed.
           </span>
         </div>
       </div>

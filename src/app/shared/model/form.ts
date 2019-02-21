@@ -1,3 +1,4 @@
+//customer class holds all the customer detail to display it in final view 
 export class Customer {
     public customerId : number = 0;
     public firstName : string = '';
@@ -22,6 +23,8 @@ export class Customer {
     public annualIncome: number = 0;
     public monthlyIncome: number = 0;
 }
+
+//class holds general form customer details
 export class CustomerGeneralInfo {
      public firstName : string;
      public lastName : string;
@@ -33,7 +36,7 @@ export class CustomerGeneralInfo {
      public country: string;
      public zipcode: number;
 }
-
+//class holds contact form customer details
 export class CustomerContactInfo {
      public emailId1 : string;
      public emailPriority1: string;
@@ -44,12 +47,12 @@ export class CustomerContactInfo {
      public phone2: number;
      public phonePriority2: String;
 }
-
+//class that holds identity form customer details
 export class CustomerIdentityInfo {
      public proofType: string;
      public proofNumber: string;
 }
-
+//class that holds income form customer details
 export class CustomerIncomeInfo {
      public annualIncome: number;
      public monthlyIncome: number;

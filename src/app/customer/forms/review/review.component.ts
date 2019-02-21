@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CustomerService } from '../../../shared/service/customer.service';
-import { Customer } from 'src/app/shared/model/form';
 
 @Component({
   selector: 'app-review',

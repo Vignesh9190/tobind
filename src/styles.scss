@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-$color_1: white;
-$color_2: #fb2525;
+@import "./stylings/variables";
 body {
 	margin: 0;
 	padding: 0;
@@ -35,5 +34,4 @@ label{
 
 .warning{
     color: $color_2;
-   // background-color: $color_2;
 }
