@@ -22,6 +22,10 @@ export class Customer {
     public proofNumber: string = '';
     public annualIncome: number = 0;
     public monthlyIncome: number = 0;
+    public generalFormStatus: string ="N/A";
+    public contactFormStatus: string ="N/A";
+    public identityFormStatus: string ="N/A";
+    public incomeFormStatus: string ="N/A";
 }
 
 //class holds general form customer details
@@ -35,6 +39,7 @@ export class CustomerGeneralInfo {
      public state : string;
      public country: string;
      public zipcode: number;
+     //public status: string;
 }
 //class holds contact form customer details
 export class CustomerContactInfo {

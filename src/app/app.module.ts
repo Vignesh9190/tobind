@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { AppComponent } from './app.component';
 
 
+
 //Router configuration
 const commonRoutes: Routes = [
   { path: '', loadChildren: './login/login.module#LoginModule' }, //lazy loading for login module

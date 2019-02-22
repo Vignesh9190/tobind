@@ -10,12 +10,11 @@
         position: relative;
         padding-block-start: 30px;
         text-align: center;
-
-        a{
-            color: $color_1;
-        }
+        color: $color_1;
+        border: 1px solid aliceblue;
+        padding-top: 6px;
+        cursor: pointer;
     }
-
 }
 
 

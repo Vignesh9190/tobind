@@ -23,7 +23,7 @@ export class IdentityComponent implements OnInit {
   onSubmit() {
     console.log('identity');
     console.log(this.identityForm.value);
-    this.customerService.setIdentityInfo(this.identityForm.value);
+    this.customerService.setIdentityInfo(this.identityForm.value, this.identityForm.status);
     this.router.navigate(['customer/income']);
   }
 

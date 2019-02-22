@@ -11,6 +11,7 @@ import { IncomeComponent } from './forms/income/income.component';
 import { ReviewComponent } from './forms/review/review.component';
 import { DobvalidationDirective } from '../shared/directive/dobvalidation.directive';
 import { NumbervalidationDirective } from '../shared/directive/numbervalidation.directive';
+import { OnlyStringValidationDirective } from '../shared/directive/only-string-validation.directive';
 //import {NgxMaskModule} from 'ngx-mask';
 
 //routes inside customer module
@@ -37,7 +38,9 @@ const customerRoutes: Routes = [
     IncomeComponent,
     ReviewComponent,
     DobvalidationDirective, //directive to perform date of birth validation
-    NumbervalidationDirective  //directive to limit user to allow only number
+    NumbervalidationDirective,  //directive to limit user to allow only number
+    OnlyStringValidationDirective
+ 
   ],
   imports: [
     CommonModule,

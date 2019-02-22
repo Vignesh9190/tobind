@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CustomerService } from '../shared/service/customer.service';
-
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-customer',
@@ -12,11 +12,15 @@ import { CustomerService } from '../shared/service/customer.service';
 export class CustomerComponent implements OnInit {
 
   @Input() customer; //same object from service
-  constructor(private customerService : CustomerService) { }
+  constructor(private customerService : CustomerService, private router: Router) { }
 
   ngOnInit() {
     this.customer = this.customerService.getData();
     console.log(this.customer);
+  }
+
+  sample(){
+    this.router.navigate(['customer/identity']);
   }
 
 }

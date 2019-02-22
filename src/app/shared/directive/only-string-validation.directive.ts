@@ -1,10 +1,11 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive,ElementRef, HostListener  } from '@angular/core';
 
 @Directive({
-  selector: '[appNumbervalidation]'
+  selector: '[appOnlyStringValidation]'
 })
-export class NumbervalidationDirective {
-  private regex: RegExp = new RegExp(/^-?[0-9]+(\[0-9]*){0,1}$/g);
+export class OnlyStringValidationDirective {
+
+  private regex: RegExp = new RegExp(/^[A-Za-z]+$/);
   private specialKeys: Array<string> = [ 'Backspace', 'Tab', 'End', 'Home', '-' ];
   constructor(private el: ElementRef) {
   }

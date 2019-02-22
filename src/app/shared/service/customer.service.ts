@@ -7,26 +7,26 @@ export class CustomerService {
   public customer: Customer = new Customer();
   constructor() { }
 
-  getGeneral() : CustomerGeneralInfo {
-    var customerGeneralInfo: CustomerGeneralInfo = {
-        firstName: this.customer.firstName,
-        lastName: this.customer.lastName,
-        dob: this.customer.dob,
-        age: this.customer.age,
-        address: this.customer.address,
-        city: this.customer.city,
-        state: this.customer.state,
-        country: this.customer.country,
-        zipcode: this.customer.zipcode
-    };
-    return customerGeneralInfo;
-  }
+  // getGeneral() : CustomerGeneralInfo {
+  //   var customerGeneralInfo: CustomerGeneralInfo = {
+  //       firstName: this.customer.firstName,
+  //       lastName: this.customer.lastName,
+  //       dob: this.customer.dob,
+  //       age: this.customer.age,
+  //       address: this.customer.address,
+  //       city: this.customer.city,
+  //       state: this.customer.state,
+  //       country: this.customer.country,
+  //       zipcode: this.customer.zipcode
+  //   };
+  //   return customerGeneralInfo;
+  // }
 
   getData() : Customer {
     return this.customer;
   }
 
-  setGeneralInfo(data: CustomerGeneralInfo) {
+  setGeneralInfo(data: CustomerGeneralInfo, generalFormStatus: string) {
     this.customer.firstName = data.firstName;
     this.customer.lastName = data.lastName;
     this.customer.dob = data.dob;
@@ -36,9 +36,10 @@ export class CustomerService {
     this.customer.state = data.state;
     this.customer.country = data.country;
     this.customer.zipcode = data.zipcode;
+    this.customer.generalFormStatus = generalFormStatus;
   } 
 
-  setContactInfo(data: CustomerContactInfo){
+  setContactInfo(data: CustomerContactInfo, contactFormStatus: string){
     this.customer.emailId1 = data.emailId1;
     this.customer.emailPriority1 = data.emailPriority1;
     this.customer.emailId2 = data.emailId2;
@@ -47,17 +48,19 @@ export class CustomerService {
     this.customer.phonePriority1 = data.phonePriority1;
     this.customer.phone2 = data.phone2;
     this.customer.phonePriority2 = data.phonePriority2;
-
+    this.customer.contactFormStatus = contactFormStatus;
   }
 
-  setIdentityInfo(data: CustomerIdentityInfo) {
+  setIdentityInfo(data: CustomerIdentityInfo, identityFormStatus: string ){
     this.customer.proofType = data.proofType;
     this.customer.proofNumber = data.proofNumber;
+    this.customer.identityFormStatus = identityFormStatus;
   }
 
-  setIncomeInfo(data: CustomerIncomeInfo){
+  setIncomeInfo(data: CustomerIncomeInfo, incomeFormStatus: string){
     this.customer.annualIncome = data.annualIncome;
     this.customer.monthlyIncome = data.monthlyIncome;
+    this.customer.incomeFormStatus = incomeFormStatus;
   }
 
   setCustomerId(data){

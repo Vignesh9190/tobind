@@ -17,23 +17,23 @@ export class IncomeComponent implements OnInit {
       monthlyIncome: ['', Validators.required],
       annualIncome: ['', Validators.required] 
     });
-    //this.calculateIncome();
+    this.calculateIncome();
   }
 
-  // calculateIncome(){
-  //   console.log('Income reached');
-  //   this.incomeForm.get('monthlyIncome').valueChanges.subscribe(
-  //     (value: number) => {
-  //       console.log(value);
-  //       let annualInr = (value*12);
-  //       this.incomeForm.get('monthlyIncome').setValue(annualInr);
-  //     }
-  //   )
-  // }
+  calculateIncome(){
+    console.log('Income reached');
+    this.incomeForm.get('monthlyIncome').valueChanges.subscribe(
+      (value: number) => {
+        console.log(value);
+        let annualInr = (value*12);
+        this.incomeForm.get('annualIncome').setValue(annualInr);
+      }
+    )
+  }
   onSubmit() {
     console.log('income');
     console.log(this.incomeForm.value);
-    this.customerService.setIncomeInfo(this.incomeForm.value);
+    this.customerService.setIncomeInfo(this.incomeForm.value, this.incomeForm.status);
     this.router.navigate(['customer/review']);
   }
 

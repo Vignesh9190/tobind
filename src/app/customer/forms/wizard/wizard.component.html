@@ -1,6 +1,6 @@
  <div class="container">
   <ul class="nav progressbar">
-      <li> <a routerLink="general">
+      <!-- <li> <a routerLink="general">
           general
              </a>
         </li>
@@ -19,8 +19,23 @@
         <li> <a routerLink="review">
           Review
              </a>
+        </li> -->
+        <li (click)="generalClick()"> 
+          general  
         </li>
-        
+        <li (click)="contactClick()"> 
+          contact    
+        </li>
+        <li (click)="identityClick()">
+          Identity
+        </li>
+        <li (click)="incomeClick()"> 
+          Income
+        </li>
+        <li (click)="reviewClick()"> 
+          Review
+        </li>
   </ul>
 </div>  
+
 

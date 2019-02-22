@@ -21,8 +21,8 @@ export class GeneralComponent implements OnInit {
   ngOnInit() {
     console.log('general');
     this.generalForm = this.formBuilder.group({
-      firstName: ['', [Validators.required, Validators.pattern('^[a-zA-Z \-\']+'), Validators.maxLength(32), Validators.minLength(2)]],
-      lastName: ['', [Validators.required, Validators.pattern('^[a-zA-Z \-\']+'), Validators.maxLength(16), Validators.minLength(1)]],
+      firstName: ['', [Validators.required, Validators.maxLength(32), Validators.minLength(2)]],
+      lastName: ['', [Validators.required, Validators.maxLength(16), Validators.minLength(1)]],
       dob: ['', Validators.required],
       age: [''],
       address: ['', [Validators.required, Validators.maxLength(56), Validators.minLength(2)]],
@@ -51,7 +51,8 @@ export class GeneralComponent implements OnInit {
   onSubmit() {
     console.log('validated');
     console.log(this.generalForm.value);
-    this.customerService.setGeneralInfo(this.generalForm.value);
+    console.log(this.generalForm.status);
+    this.customerService.setGeneralInfo(this.generalForm.value,this.generalForm.status);
     this.router.navigate(['customer/contact']);
   }
 

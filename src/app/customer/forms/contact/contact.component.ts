@@ -34,7 +34,7 @@ export class ContactComponent implements OnInit {
   onSubmit() {
     console.log('contact');
     console.log(this.contactForm.value);
-    this.customerService.setContactInfo(this.contactForm.value);
+    this.customerService.setContactInfo(this.contactForm.value, this.contactForm.status);
     this.router.navigate(['customer/identity']);
   }
   //To add secondary email
